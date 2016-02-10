@@ -18,3 +18,5 @@ mocha
 
 
   3 passing (1s)
+
+To read more about this subject, visit https://codeforgeek.com/2015/07/unit-testing-nodejs-application-using-mocha/
