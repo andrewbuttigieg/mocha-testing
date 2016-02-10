@@ -1,0 +1,28 @@
+{
+  "name": "mochatesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "should": "^8.2.2",
+    "supertest": "^1.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "supertest": "^1.1.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewbuttigieg/mochaTesting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewbuttigieg/mochaTesting/issues"
+  },
+  "homepage": "https://github.com/andrewbuttigieg/mochaTesting#readme"
+}
