@@ -62,7 +62,7 @@ describe("Menu unit test",function(){
 });
 
 describe("Prelive unit test",function(){
-  it("should return the menu and menu should have some sports",function(done){
+  it("should return prelive matches ",function(done){
     server
     .get("/prelive/get?language=en")
     .expect("Content-type",/json/)
@@ -72,6 +72,22 @@ describe("Prelive unit test",function(){
       res.status.should.equal(200);
       //check if we have sports..
       should(res.body.PreliveMatches.length > 50).be.equal(true);
+      done();
+    });
+  });
+});
+
+describe("Search unit test",function(){
+  it("should return earch data", function(done){
+    server
+    .get("/Prelive/Search?language=en&query=ars")
+    .expect("Content-type",/json/)
+    .expect(200) // THis is HTTP response
+    .end(function(err,res){
+      // HTTP status should be 200
+      res.status.should.equal(200);
+      //check if we have sports..
+      should(res.body.tournament.length > 1).be.equal(true);
       done();
     });
   });
