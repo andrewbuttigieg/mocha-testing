@@ -8,6 +8,7 @@
     "supertest": "^1.1.0"
   },
   "devDependencies": {
+    "expect": "^1.14.0",
     "mocha": "^2.4.5",
     "should": "^8.2.2",
     "supertest": "^1.1.0"
