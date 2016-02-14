@@ -1,10 +1,12 @@
 var supertest = require("supertest");
-var should = require("should");
-var expect = require("expect");
+var chai = require('chai'),
+assert = chai.assert,
+expect = chai.expect,
+should = chai.should;
 
 // This agent refers to PORT where program is runninng.
 
-var server = supertest.agent("https://sportsfront-gutsstaging.igamingcloud.com");
+var server = supertest.agent("https://sportsfront-guts.igamingcloud.com");
 
 // UNIT test begin
 describe("Home unit test",function(){
@@ -19,10 +21,6 @@ describe("Home unit test",function(){
     .expect("Content-type",/json/)
     .expect(403) // THis is HTTP response
     .end(function(err,res){
-      // HTTP status should be 403
-      res.status.should.equal(403);
-      // Error key should be false.
-      //res.body.error.should.equal(false);
       done();
     });
   });
@@ -36,10 +34,6 @@ describe("Docs unit test",function(){
     .expect("Content-type",/json/)
     .expect(200) // THis is HTTP response
     .end(function(err,res){
-      // HTTP status should be 200
-      res.status.should.equal(200);
-      // Error key should be false.
-      //res.body.error.should.equal(false);
       done();
     });
   });
@@ -50,12 +44,10 @@ describe("Menu unit test",function(){
     server
     .get("/menu/get?language=en")
     .expect("Content-type",/json/)
-    .expect(200) // THis is HTTP response
+    .expect(function(res) {
+    }) // THis is HTTP response
     .end(function(err,res){
-      // HTTP status should be 200
-      res.status.should.equal(200);
-      //check if we have sports..
-      should(res.body.sports.length > 5).be.equal(true);
+      	expect(res.body.sports.length).to.be.above(5);
       done();
     });
   });
@@ -68,10 +60,7 @@ describe("Prelive unit test",function(){
     .expect("Content-type",/json/)
     .expect(200) // THis is HTTP response
     .end(function(err,res){
-      // HTTP status should be 200
-      res.status.should.equal(200);
-      //check if we have sports..
-      should(res.body.PreliveMatches.length > 50).be.equal(true);
+      expect(res.body.PreliveMatches.length).to.be.above(5);
       done();
     });
   });
@@ -84,10 +73,7 @@ describe("Search unit test",function(){
     .expect("Content-type",/json/)
     .expect(200) // THis is HTTP response
     .end(function(err,res){
-      // HTTP status should be 200
-      res.status.should.equal(200);
-      //check if we have sports..
-      should(res.body.tournament.length > 1).be.equal(true);
+      expect(res.body.tournament.length).to.be.above(1);
       done();
     });
   });
